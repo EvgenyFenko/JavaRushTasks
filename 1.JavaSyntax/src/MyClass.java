@@ -3,23 +3,25 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class MyClass {
-
+// сортировка по возростанию
     public static void main(java.lang.String[] args) {
+        int[] array = {1, 5, 3, 8, 9, 12};
 
-        String mercury = new String("Меркурий");
-        String venus = new String("Венера");
-        String earth = new String("Земля");
-        String mars = new String("Марс");
-        String jupiter = new String("Юпитер");
-        String saturn = new String("Сатурн");
-        String uranus = new String("Уран");
-        String neptune = new String("Нептун");
-
-        ArrayList<String> solarSystem = new ArrayList<>(Arrays.asList(mercury, venus, earth, mars,
-                jupiter, saturn, uranus, neptune));
-        Collections.sort(solarSystem);
-        Collections.reverse(solarSystem);
-        System.out.println(solarSystem);
-
+        for (int out = array.length - 1; out >= 0; out--)
+        {
+            for (int in = 0; in < out; in++)
+            {
+                if (array[in] < array[in + 1])
+                {
+                    int tmp = array[in +1];
+                    array[in + 1] = array[in];
+                    array[in] = tmp;
+                }
+            }
+        }
+        for (int i = 0; i < array.length; i++)
+        {
+            System.out.println(array[i]);
+        }
     }
 }
