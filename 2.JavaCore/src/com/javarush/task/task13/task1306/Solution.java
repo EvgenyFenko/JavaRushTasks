@@ -11,21 +11,24 @@ public class Solution {
     }
 
     static class Matrix {
-        public static DBObject NEO = new User().initializeIdAndName(1, "Neo");
-        public static DBObject TRINITY = new User().initializeIdAndName(2, "Trinity");
+        public static User NEO = new User().initializeIdAndName(1, "Neo");
+        public static User TRINITY = new User().initializeIdAndName(2, "Trinity");
     }
 
     interface DBObject {
-        DBObject initializeIdAndName(long id, String name) {
-            this.id = id;
-            this.name = name;
-            return this;
-        }
+        DBObject initializeIdAndName(long id, String name);
     }
 
     static class User implements DBObject {
         long id;
         String name;
+
+        @Override
+        public User initializeIdAndName(long id, String name) {
+            this.id = id;
+            this.name = name;
+            return this;
+        }
 
         @Override
         public String toString() {
