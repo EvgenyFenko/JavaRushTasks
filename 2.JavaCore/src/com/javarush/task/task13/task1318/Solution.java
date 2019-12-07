@@ -1,6 +1,5 @@
 package com.javarush.task.task13.task1318;
 
-import javax.imageio.IIOException;
 import java.io.*;
 import java.util.Scanner;
 
@@ -10,15 +9,25 @@ import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String fileName = bufferedReader.readLine();
+        // напишите тут ваш код
+//        boolean flag = false;
+        String filename;
+        String string = "";
 
-        FileInputStream fileInputStream = new FileInputStream(fileName);
-        int i;
-        while((i=fileInputStream.read())!= -1){
-            System.out.print((char)i);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        filename = reader.readLine();
+        FileOutputStream fileOutputStream = new FileOutputStream(filename);
+
+
+        while (true) {
+            string = reader.readLine() ;
+
+            fileOutputStream.write(("\n" + string).getBytes());
+            if (string.equals("exit")) break;
+
         }
-        bufferedReader.close();
-        fileInputStream.close();
+
+        reader.close();
+        fileOutputStream.close();
     }
 }
