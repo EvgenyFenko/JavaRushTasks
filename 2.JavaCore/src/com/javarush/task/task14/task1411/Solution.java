@@ -14,15 +14,39 @@ public class Solution {
         String key = null;
 
         //тут цикл по чтению ключей, пункт 1
+        String name;
+        while (true)
         {
+            name = reader.readLine();
+            if (!(name.equals("user")  || name.equals("loser") || name.equals("coder") || name.equals("proger")))
+                break;
             //создаем объект, пункт 2
+            switch (name)
+            {
+                case "user": person = new Person.User(); break;
+                case "loser" : person = new Person.Loser(); break;
+                case "coder" : person = new Person.Coder(); break;
+                case "proger" : person = new Person.Proger(); break;
 
+
+            }
             doWork(person); //вызываем doWork
+
 
         }
     }
 
     public static void doWork(Person person) {
         // пункт 3
+
+        if (person instanceof Person.User) {
+            ((Person.User) person).live();
+        } else if (person instanceof Person.Loser) {
+            ((Person.Loser) person).doNothing();
+        } else if (person instanceof Person.Coder) {
+            ((Person.Coder) person).writeCode();
+        } else if (person instanceof Person.Proger) {
+            ((Person.Proger) person).enjoy();
+        }
     }
 }
