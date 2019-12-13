@@ -45,16 +45,20 @@ public class Solution {
 
             for (Map.Entry<Integer, String[]> pair : map.entrySet()) {
                 String elem [] = pair.getValue();
-                System.out.println(elem[0]);
+                System.out.print(elem[0] + " ");
             }
+            System.out.println();
 
             for (Map.Entry<Integer, String[]> pair : map.entrySet()) {
                 String elem [] = pair.getValue();
                 Double d = null;
                 if (elem[0].equals("obj")) {
-                    if (elem[1].contains("."))
+                    try {
                         d = Double.parseDouble(elem[1]);
-                    alert(d);
+                        alert(d);
+                    } catch (Exception e) {
+                        alert(elem[1]);
+                    }
                 }
 //                System.out.println(elem[0]);
             }
