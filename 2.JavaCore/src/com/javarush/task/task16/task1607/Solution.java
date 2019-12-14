@@ -22,8 +22,8 @@ public class Solution {
             if (!elem.isFinished()) {
                 System.out.println( "Waiting for " + elem.getName());
                 elem.join();
-            }
-
+            } else
+        finishedCount ++;
         }
 
         return finishedCount;
