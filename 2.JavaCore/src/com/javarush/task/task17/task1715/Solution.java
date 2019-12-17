@@ -25,11 +25,25 @@ public class Solution {
     }
 
     public static class Apteka implements Runnable {
+        public void run() {
+            while (!isStopped) {
+                drugsController.buy(getRandomDrug(), getRandomCount());
+                waitAMoment();
+                waitAMoment();
+                waitAMoment();
+            }
 
+        }
     }
 
     public static class Person implements Runnable {
+        public void run() {
+            while (!isStopped) {
+                drugsController.sell(getRandomDrug(), getRandomCount());
+                waitAMoment();
+            }
 
+        }
     }
 
     public static int getRandomCount() {
