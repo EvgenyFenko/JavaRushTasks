@@ -1,6 +1,8 @@
 package com.javarush.task.task18.task1812;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /* 
 Расширяем AmigoOutputStream
@@ -8,46 +10,45 @@ import java.io.*;
 
 public class QuestionFileOutputStream implements AmigoOutputStream {
 
-    private AmigoOutputStream amigoOutputStream;
+    AmigoOutputStream component;
 
-    public QuestionFileOutputStream (AmigoOutputStream amigoOutputStream ) {
-        this.amigoOutputStream = amigoOutputStream;
+    QuestionFileOutputStream(AmigoOutputStream component) {
+        this.component = component;
     }
+
 
     @Override
     public void flush() throws IOException {
-
+        component.flush();
     }
 
     @Override
     public void write(int b) throws IOException {
-
+        component.write(b);
     }
 
     @Override
     public void write(byte[] b) throws IOException {
+        component.write(b);
 
     }
 
     @Override
     public void write(byte[] b, int off, int len) throws IOException {
+        component.write(b, off, len);
 
     }
 
+    @Override
     public void close() throws IOException {
         System.out.println("Вы действительно хотите закрыть поток? Д/Н");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        while (true) {
-            String string = reader.readLine();
-            if (string.equals("Д")) {
-                reader.close();
-                break;
-            }
-        }
+        String s= reader.readLine();
 
+        if (s.equals("Д"))
+            component.close();
+
+        reader.close();
     }
-
-
-
 }
 
