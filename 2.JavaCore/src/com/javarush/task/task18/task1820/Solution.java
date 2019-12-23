@@ -4,34 +4,38 @@ package com.javarush.task.task18.task1820;
 Округление чисел
 */
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//        String file1 = reader.readLine();
-//        String file2 = reader.readLine();
-//        reader.close();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        String file1 = "/home/evgeny/file1.txt";
+        String fileName1 = reader.readLine();
+        String fileName2 = reader.readLine();
 
-        FileInputStream fileInputStream = new FileInputStream(file1);
-        byte [] buffer = new byte [fileInputStream.available()];
-        fileInputStream.read(buffer);
-        String numbers = new String(buffer);
+        //Читаем файл
+        ArrayList<String> list = new ArrayList<String>();
+        BufferedReader f1 = new BufferedReader(new FileReader(fileName1));
+        while (f1.ready())
+            list.add(f1.readLine());
+        f1.close();
 
-//        ArrayList<String> tmp = new ArrayList<>();
-        String [] tmp;
-        tmp = numbers.split(" ");
-        for (String elem : tmp) {
-            Double dbl = (Double) elem;
+        //Парсим и округляем
+        ArrayList<Long> values = new ArrayList<Long>();
+        for (String s : list) {
+            for (String part : s.split(" ")) {
+                double a = Double.parseDouble(part);
+                values.add(Math.round(a));
+            }
         }
+        f1.close();
 
-        System.out.println(numbers);
+        //Запись в файл
+        FileWriter f2 = new FileWriter(fileName2);
+        for (Long value : values)
+            f2.write( value.toString()+" ");
 
-
-
-
+        f2.close();
     }
 }
