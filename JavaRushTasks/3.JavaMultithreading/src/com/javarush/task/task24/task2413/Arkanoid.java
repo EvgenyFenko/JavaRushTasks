@@ -67,7 +67,8 @@ public class Arkanoid {
     }
 
     public static void main(String[] args) {
-//        Canvas canvas = new Canvas(20, 20);
-//        canvas.setPoint(5,5, 'A');
+        Canvas canvas = new Canvas(20, 20);
+        canvas.setPoint(10.0, 1.0, 'A');
+        canvas.print();
     }
 }

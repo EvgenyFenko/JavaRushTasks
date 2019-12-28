@@ -58,17 +58,28 @@ public class Canvas {
     }
 
     public void clear() {
-        int height = matrix.length;
-        int width = matrix[0].length;
-
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++){
-                matrix[i][j] = '';
-            }
-        }
+//        int height = matrix.length;
+//        int width = matrix[0].length;
+//
+//        for (int i = 0; i < height; i++) {
+//            for (int j = 0; j < width; j++){
+//                matrix[i][j] = ' ';
+//            }
+//        }
+        matrix = new char[height + 2][width + 2];
     }
 
-    public void print() {
 
+    public void print() {
+        int height = matrix.length;
+        int width = matrix[0].length;
+        String line = "";
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++){
+                line += String.valueOf(matrix[i][j]);
+            }
+            System.out.println(line);
+            line = "";
+        }
     }
 }
