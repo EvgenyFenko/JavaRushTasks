@@ -4,7 +4,10 @@ import com.javarush.task.task36.task3608.bean.User;
 
 import java.util.Arrays;
 
-public class FakeModel implements Model {
+/**
+ * Created by Rumata on 28.02.2017.
+ */
+public class FakeModel implements Model{
     private ModelData modelData = new ModelData();
 
     @Override
@@ -20,7 +23,6 @@ public class FakeModel implements Model {
 
     @Override
     public void loadDeletedUsers() {
-//        List<User> users = se.getAllDeletedUsers();
         throw new UnsupportedOperationException();
     }
 
@@ -29,5 +31,13 @@ public class FakeModel implements Model {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public void deleteUserById(long id) {
+        throw new UnsupportedOperationException();
+    }
 
+    @Override
+    public void changeUserData(String name, long id, int level) {
+        throw new UnsupportedOperationException();
+    }
 }
