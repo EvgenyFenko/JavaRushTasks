@@ -15,7 +15,7 @@ public class Human {
 
     protected int[] size;
 
-    protected boolean isSoldier;
+//    protected boolean isSoldier;
 
 //    public void setChildren(List<Human> children) {
 //        this.children = children;
@@ -39,11 +39,16 @@ public class Human {
         return bloodGroup;
     }
 
-    public Human(boolean isSoldier) {
-        this.isSoldier = isSoldier;
-        this.id = nextId;
-        nextId++;
+    public Human(String name, int age) {
+        this.age = age;
+        this.name = name;
     }
+
+//    public Human(boolean isSoldier) {
+//        this.isSoldier = isSoldier;
+//        this.id = nextId;
+//        nextId++;
+//    }
 
     public int getAge() {
         return age;
@@ -65,13 +70,12 @@ public class Human {
         return course;
     }
 
-    public void live() {
-        if (isSoldier)
-            fight();
-    }
+//    public void live() {
+//        if (isSoldier)
+//            fight();
+//    }
 
-    public void fight() {
-    }
+
 
     public int getId() {
         return id;
