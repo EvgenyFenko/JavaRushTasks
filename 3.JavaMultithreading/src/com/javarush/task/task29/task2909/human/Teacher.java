@@ -27,6 +27,10 @@ public class Teacher extends UniversityPerson {
     public void teach() {
     }
 
+    @Override
+    public String getPosition() {
+        return "Преподаватель";
+    }
 //    public String getUniversity() {
 //        return university;
 //    }
@@ -35,7 +39,7 @@ public class Teacher extends UniversityPerson {
 //        this.university = university;
 //    }
 
-    public void printData() {
-        System.out.println("Преподаватель: " + name);
-    }
+//    public void printData() {
+//        getPosition();
+//    }
 }

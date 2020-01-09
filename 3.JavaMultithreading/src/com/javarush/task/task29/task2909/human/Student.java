@@ -33,6 +33,10 @@ public class Student extends UniversityPerson {
     public void learn() {
     }
 
+    @Override
+    public String getPosition() {
+        return "Студент";
+    }
 //    public String getUniversity() {
 //        return university;
 //    }
@@ -41,9 +45,9 @@ public class Student extends UniversityPerson {
 //        this.university = university;
 //    }
 
-    public void printData() {
-        System.out.println("Студент: " + name);
-    }
+//    public void printData() {
+//        getPosition();
+//    }
 
     public void incAverageGradeBy01() {
         averageGrade += 0.1;
