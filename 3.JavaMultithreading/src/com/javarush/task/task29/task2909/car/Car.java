@@ -18,7 +18,7 @@ public class Car {
     private boolean driverAvailable;
     private int numberOfPassengers;
 
-    public Car(int type, int numberOfPassengers) {
+    protected Car(int type, int numberOfPassengers) {
         this.type = type;
         this.numberOfPassengers = numberOfPassengers;
     }
@@ -79,4 +79,16 @@ public class Car {
             return 120;
         return 90;
     }
+    public static Car create(int type, int numberOfPassengers) {
+        Car instance;
+        if (type == TRUCK) {
+            instance = new Truck(numberOfPassengers);
+        } else if (type == CABRIOLET) {
+            instance = new Cabriolet(numberOfPassengers);
+        } else {
+            instance = new Sedan(numberOfPassengers);
+        }
+        return instance;
+    }
+
 }

@@ -12,12 +12,18 @@ public class Human implements Alive {
     protected int age;
     protected String name;
 
+//    protected int[] size;
+
     protected Size size;
 
     public List<Human> getChildren() {
         return Collections.unmodifiableList(children);
     }
 
+//    public static final int FIRST = 1;
+//    public static final int SECOND = 2;
+//    public static final int THIRD = 3;
+//    public static final int FOURTH = 4;
     private BloodGroup bloodGroup;
 
     public void setBloodGroup(BloodGroup bloodGroup) {
@@ -27,6 +33,14 @@ public class Human implements Alive {
     public BloodGroup getBloodGroup() {
         return bloodGroup;
     }
+
+//    public void setBloodGroup(int code) {
+//        bloodGroup = code;
+//    }
+//
+//    public int getBloodGroup() {
+//        return bloodGroup;
+//    }
 
     public Human(String name, int age) {
         this.age = age;
@@ -67,6 +81,7 @@ public class Human implements Alive {
 
     @Override
     public void live() {
+
     }
 
     public String getPosition() {
