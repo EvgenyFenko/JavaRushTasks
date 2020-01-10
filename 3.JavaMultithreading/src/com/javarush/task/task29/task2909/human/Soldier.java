@@ -8,7 +8,6 @@ public class Soldier extends Human {
     }
 
     public void live() {
-//        if (isSoldier)
             fight();
     }
 

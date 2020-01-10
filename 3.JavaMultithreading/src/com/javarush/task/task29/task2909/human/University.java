@@ -48,7 +48,6 @@ public class University {
     }
 
     public Student getStudentWithAverageGrade(double value) {
-        //TODO:
         for (Student student : students) {
             if (student.getAverageGrade() == value) {
                 return student;
@@ -58,7 +57,6 @@ public class University {
     }
 
     public Student getStudentWithMaxAverageGrade() {
-        //TODO:
         double maxAverageGrade = students.get(0).getAverageGrade();
         Student result = students.get(0);
         for (Student student : students) {
@@ -69,10 +67,6 @@ public class University {
         }
         return result;
     }
-
-//    public void getStudentWithMinAverageGradeAndExpel() {
-//        //TODO:
-//    }
 
     public Student getStudentWithMinAverageGrade() {
         double minAverageGrade = students.get(0).getAverageGrade();
