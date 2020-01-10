@@ -6,16 +6,29 @@ import java.util.List;
 public class StudentsDataBase {
     public static List<Student> students = new ArrayList<>();
 
-    public static void addInfoAboutStudent(String name, int age, double averageGrade) {
-        Student student = new Student(name, age, averageGrade);
+//    public static void addInfoAboutStudent(String name, int age, double averageGrade) {
+//        Student student = new Student(name, age, averageGrade);
+//        students.add(student);
+//        printInfoAboutStudent(student.getName(), student);
+//
+//    }
+
+    public static void addInfoAboutStudent(Student student) {
+//        Student student = new Student(name, age, averageGrade);
         students.add(student);
-        printInfoAboutStudent(student.getName(), student);
+        printInfoAboutStudent(student);
 
     }
 
-    public static void printInfoAboutStudent(String name, Student student) {
+//    public static void printInfoAboutStudent(String name, Student student) {
+//        System.out.println("Имя: " + name + " Возраст: " + student.getAge());
+//    }
+
+    public static void printInfoAboutStudent(Student student) {
+        String name = student.getName();
         System.out.println("Имя: " + name + " Возраст: " + student.getAge());
     }
+
 
     public static void removeStudent(int index) throws IndexOutOfBoundsException {
         students.remove(index);
