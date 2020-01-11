@@ -11,26 +11,53 @@ public class Client {
     protected Connection connection;
     private volatile boolean clientConnected = false;
 
+    public static void main(String[] args) {
+        Client client = new Client();
+        client.run();
+    }
+
+    public void run() {
+        {
+            SocketThread socketThread = getSocketThread();
+            socketThread.setDaemon(true);
+            socketThread.start();
+            try {
+                synchronized (this) {
+                    wait();
+                }
+            } catch (InterruptedException e) {
+                ConsoleHelper.writeMessage("Ошибка потока...");
+                System.exit(1);
+            }
+            if (clientConnected) {
+                ConsoleHelper.writeMessage("Соединение установлено. Для выхода наберите команду ‘exit’");
+                while (clientConnected) {
+                    String message = ConsoleHelper.readString();
+                    if (message.equalsIgnoreCase("exit")) {
+                        break;
+                    } else {
+                        if (shouldSendTextFromConsole()) {
+                            sendTextMessage(message);
+                        }
+                    }
+                }
+            } else {
+                ConsoleHelper.writeMessage("Произошла ошибка во время работы клиента.");
+            }
+        }
+    }
+
     protected String getServerAddress() throws IOException {
-//        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-//        System.out.println("Введите адрес сервера:");
-//        return bufferedReader.readLine();
         ConsoleHelper.writeMessage("Введите адрес сервера:");
         return ConsoleHelper.readString();
     }
 
     protected int getServerPort() throws IOException {
-//        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-//        System.out.println("Введите адрес порта:");
-//        return Integer.parseInt(bufferedReader.readLine());
         ConsoleHelper.writeMessage("Введите адрес порта:");
         return ConsoleHelper.readInt();
     }
 
     protected String getUserName() throws IOException {
-//        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-//        System.out.println("Введите имя пользователя:");
-//        return bufferedReader.readLine();
         ConsoleHelper.writeMessage("Введите имя пользователя:");
         return ConsoleHelper.readString();
     }
