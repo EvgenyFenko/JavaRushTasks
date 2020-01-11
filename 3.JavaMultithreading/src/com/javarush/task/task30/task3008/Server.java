@@ -33,10 +33,12 @@ public class Server {
     }
 
     private static class Handler extends Thread {
+
         private Socket socket;
         public Handler(Socket socket) {
             this.socket = socket;
         }
+
         private String serverHandshake(Connection connection) throws IOException, ClassNotFoundException {
             while (true) {
                 connection.send(new Message(MessageType.NAME_REQUEST));
@@ -54,10 +56,22 @@ public class Server {
                 }
             }
         }
+
         private void notifyUsers(Connection connection, String userName) throws IOException {
             for (Map.Entry<String, Connection> entry : connectionMap.entrySet()) {
                 if (entry.getKey() != userName) {
                     connection.send(new Message(MessageType.USER_ADDED, entry.getKey()));
+                }
+            }
+        }
+
+        private void serverMainLoop(Connection connection, String userName) throws IOException, ClassNotFoundException {
+            while (true) {
+                Message message = connection.receive();
+                if (message != null && message.getType() == MessageType.TEXT) {
+                    sendBroadcastMessage(new Message(MessageType.TEXT, userName + ": " + message.getData()));
+                } else {
+                    ConsoleHelper.writeMessage("Error!");
                 }
             }
         }
