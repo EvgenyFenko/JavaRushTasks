@@ -4,8 +4,12 @@ package com.javarush.task.task30.task3008;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Server {
+    private static Map<String, Connection> connectionMap = new ConcurrentHashMap<>();;
+
     public static void main(String[] args) throws IOException {
 //        ConsoleHelper.writeMessage("Input server port: ");
         try (ServerSocket serverSocket = new ServerSocket(ConsoleHelper.readInt())) {
@@ -15,6 +19,16 @@ public class Server {
             }
         } catch (Exception e) {
             ConsoleHelper.writeMessage("Something wrong, Server socket closed.");
+        }
+    }
+
+    public static void sendBroadcastMessage(Message message) {
+        for (Map.Entry<String, Connection> entry : connectionMap.entrySet()) {
+            try {
+                entry.getValue().send(message);
+            } catch (IOException e) {
+                System.out.println("Сообщение не отправлено");;
+            }
         }
     }
 
