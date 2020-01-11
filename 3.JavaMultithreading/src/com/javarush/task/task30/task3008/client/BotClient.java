@@ -7,18 +7,22 @@ public class BotClient extends Client {
         botClient.run();
     }
 
+    @Override
+    protected SocketThread getSocketThread() {
+        return new BotSocketThread();
+    }
+
+    protected boolean shouldSendTextFromConsole() {
+        return false;
+    }
+
+    protected String getUserName() {
+        String botName = "date_bot_" + ((int) (Math.random() * 100));
+        return botName;
+    }
+
     public class BotSocketThread extends SocketThread {
 
-        public BotSocketThread getSocketThread() {
-            return new BotSocketThread();
-        }
 
-        public boolean shouldSendTextFromConsole() {
-            return false;
-        }
-
-        public String getUserName() {
-            return "data_bot" + Math.random()*100;
-        }
     }
 }
