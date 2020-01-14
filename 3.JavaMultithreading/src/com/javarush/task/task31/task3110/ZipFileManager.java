@@ -17,16 +17,21 @@ public class ZipFileManager {
         try (ZipOutputStream zipOutputStream = new  ZipOutputStream(Files.newOutputStream(zipFile));
              InputStream inputStream = Files.newInputStream(source))
         {
+
             String fileName = source.getFileName().toString();
             ZipEntry zipEntry = new ZipEntry(fileName);
             zipOutputStream.putNextEntry(zipEntry);
+//            InputStream inputStream = Files.newInputStream(source);
             int data;
+
             while ((data = inputStream.read()) != -1) {
                 zipOutputStream.write(data);
             }
         } catch (Exception e) {
 
         }
+
+
 
     }
 }
