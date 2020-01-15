@@ -11,14 +11,16 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 public class ZipFileManager {
-    private Path zipFile;
+    // Полный путь zip файла
+    private final Path zipFile;
 
     public ZipFileManager(Path zipFile) {
         this.zipFile = zipFile;
     }
 
     public void createZip(Path source) throws Exception {
-
+        // Проверяем, существует ли директория, где будет создаваться архив
+        // При необходимости создаем ее
         Path zipDirectory = zipFile.getParent();
         if (Files.notExists(zipDirectory))
             Files.createDirectories(zipDirectory);
@@ -44,9 +46,7 @@ public class ZipFileManager {
                 // Если переданный source не директория и не файл, бросаем исключение
                 throw new PathIsNotFoundException();
             }
-
         }
-
     }
 
     private void addNewZipEntry(ZipOutputStream zipOutputStream, Path filePath, Path fileName) throws Exception {
@@ -69,6 +69,4 @@ public class ZipFileManager {
             out.write(buffer, 0, len);
         }
     }
-
-
 }
