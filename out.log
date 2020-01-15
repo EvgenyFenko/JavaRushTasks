@@ -6410,3 +6410,38 @@
 2020-01-15 19:29:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
 2020-01-15 19:30:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
 2020-01-15 19:31:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:32:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:33:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:34:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:35:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:36:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:37:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:38:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:39:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:40:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:41:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:42:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:43:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:44:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:45:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:46:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:47:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:48:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:49:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:50:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:51:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:52:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:53:14 INFO  ApacheHttpClient.getWebResourceAsStream(493) - responseCode = 200
+2020-01-15 19:53:14 INFO  ApacheHttpClient.getTask(479) - responseCode = 200
+2020-01-15 19:53:14 INFO  ApacheHttpClient.getWebResourceAsStream(493) - responseCode = 200
+2020-01-15 19:53:18 INFO  ApacheHttpClient.completed(28) - responseCode = 200
+2020-01-15 19:53:18 INFO  ApacheHttpClient.getTask(479) - responseCode = 200
+2020-01-15 19:53:21 INFO  ApacheHttpClient.sendEvent(526) - responseCode = 200
+2020-01-15 19:53:29 INFO  ApacheHttpClient.getWebResourceAsStream(493) - responseCode = 200
+2020-01-15 19:53:29 WARN  PluginUtil.getCurrentTask(70) - Error while retrieving the task key.
+2020-01-15 19:53:29 WARN  PluginUtil.getCurrentDirectory(101) - Error while getting the current directory.
+2020-01-15 19:53:29 WARN  PluginUtil.getCurrentDirectory(101) - Error while getting the current directory.
+2020-01-15 19:53:30 INFO  ApacheHttpClient.getTask(479) - responseCode = 200
+2020-01-15 19:53:30 INFO  ApacheHttpClient.getWebResourceAsStream(493) - responseCode = 200
+2020-01-15 19:53:34 INFO  ApacheHttpClient.completed(28) - responseCode = 200
+2020-01-15 19:53:35 INFO  ApacheHttpClient.getTask(479) - responseCode = 200
