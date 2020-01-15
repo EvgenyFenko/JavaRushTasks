@@ -53,27 +53,6 @@ public class ZipFileManager {
         }
     }
 
-    private void addNewZipEntry(ZipOutputStream zipOutputStream, Path filePath, Path fileName) throws Exception {
-        Path fullPath = filePath.resolve(fileName);
-        try (InputStream inputStream = Files.newInputStream(fullPath)) {
-            ZipEntry entry = new ZipEntry(fileName.toString());
-
-            zipOutputStream.putNextEntry(entry);
-
-            copyData(inputStream, zipOutputStream);
-
-            zipOutputStream.closeEntry();
-        }
-    }
-
-    private void copyData(InputStream in, OutputStream out) throws Exception {
-        byte[] buffer = new byte[8 * 1024];
-        int len;
-        while ((len = in.read(buffer)) > 0) {
-            out.write(buffer, 0, len);
-        }
-    }
-
     public List<FileProperties> getFilesList() throws Exception {
         // Проверяем существует ли zip файл
         if (!Files.isRegularFile(zipFile)) {
@@ -98,5 +77,26 @@ public class ZipFileManager {
         }
 
         return files;
+    }
+
+    private void addNewZipEntry(ZipOutputStream zipOutputStream, Path filePath, Path fileName) throws Exception {
+        Path fullPath = filePath.resolve(fileName);
+        try (InputStream inputStream = Files.newInputStream(fullPath)) {
+            ZipEntry entry = new ZipEntry(fileName.toString());
+
+            zipOutputStream.putNextEntry(entry);
+
+            copyData(inputStream, zipOutputStream);
+
+            zipOutputStream.closeEntry();
+        }
+    }
+
+    private void copyData(InputStream in, OutputStream out) throws Exception {
+        byte[] buffer = new byte[8 * 1024];
+        int len;
+        while ((len = in.read(buffer)) > 0) {
+            out.write(buffer, 0, len);
+        }
     }
 }
