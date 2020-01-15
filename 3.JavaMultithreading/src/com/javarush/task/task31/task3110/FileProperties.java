@@ -6,16 +6,13 @@ public class FileProperties {
     private long compressedSize;
     private int compressionMethod;
 
-    public int getCompressionMethod() {
-        return compressionMethod;
-    }
-
     public FileProperties(String name, long size, long compressedSize, int compressionMethod) {
         this.name = name;
         this.size = size;
         this.compressedSize = compressedSize;
         this.compressionMethod = compressionMethod;
     }
+
 
     public String getName() {
         return name;
@@ -29,7 +26,12 @@ public class FileProperties {
         return compressedSize;
     }
 
+    public int getCompressionMethod() {
+        return compressionMethod;
+    }
+
     public long getCompressionRatio() {
+        // Вычисляем степень сжатия
         return 100 - ((compressedSize * 100) / size);
     }
 
