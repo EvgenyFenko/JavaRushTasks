@@ -16,12 +16,15 @@ public class Tablet extends Observable {
     }
 
     public Order createOrder() {
-
+        
         try {
             Order order = new Order(this);
+
+//            printOrderAndShowAds(order);
             setChanged();
             notifyObservers(order);
             return order;
+
         }
         catch (IOException e) {
             logger.log(Level.SEVERE, "Console is unavailable.");
