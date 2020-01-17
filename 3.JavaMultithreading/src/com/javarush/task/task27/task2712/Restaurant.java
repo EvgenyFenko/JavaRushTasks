@@ -9,13 +9,14 @@ public class Restaurant {
 //        System.out.println(Dish.allDishesToString());
         Tablet tablet = new Tablet(1);
         tablet.createOrder();
-        tablet.createOrder();
-        tablet.createOrder();
-        tablet.createOrder();
+//        tablet.createOrder();
+//        tablet.createOrder();
+//        tablet.createOrder();
 
         Cook cook = new Cook("Amigo");
         tablet.addObserver(cook);
         Waiter waiter = new Waiter();
         cook.addObserver(waiter);
+//        cook.update();
     }
 }
