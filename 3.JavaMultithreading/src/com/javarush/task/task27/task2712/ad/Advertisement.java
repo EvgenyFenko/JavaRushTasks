@@ -28,4 +28,15 @@ public class Advertisement {
         this.duration = duration;
         this.amountPerOneDisplaying = initialAmount / hits;
     }
+
+    public void revalidate() {
+        if (hits < 1) {
+            throw new UnsupportedOperationException();
+        }
+        hits--;
+    }
+
+    public int getHits() {
+        return hits;
+    }
 }
