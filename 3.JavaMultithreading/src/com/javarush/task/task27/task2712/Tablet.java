@@ -23,6 +23,7 @@ public class Tablet extends Observable {
 //            printOrderAndShowAds(order);
             setChanged();
             notifyObservers(order);
+
             return order;
 
         }
