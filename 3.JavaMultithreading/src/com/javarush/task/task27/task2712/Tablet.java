@@ -15,21 +15,19 @@ public class Tablet extends Observable {
         this.number = number;
     }
 
-    public Order createOrder() {
-        
+    public Order createOrder(){
+        Order order = null;
         try {
-            Order order = new Order(this);
-
-//            printOrderAndShowAds(order);
-            setChanged();
-            notifyObservers(order);
-            return order;
-
+            order= new Order(this);
+            if (!order.isEmpty()) {
+                ConsoleHelper.writeMessage(order.toString());
+                setChanged();
+                notifyObservers(order);
+            }
+        } catch (IOException e) {
+            logger.log(Level.SEVERE,"Console is unavailable.");
         }
-        catch (IOException e) {
-            logger.log(Level.SEVERE, "Console is unavailable.");
-            return null;
-        }
+        return order;
     }
 
     @Override

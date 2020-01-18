@@ -19,5 +19,20 @@ public class Order {
     public String toString() {
 //        if (dishes.size() == 0) return "";
         return dishes.isEmpty() ? "" : String.format("Your order: %s of %s", dishes, tablet);
+
+
+    }
+
+    public int getTotalCookingTime() {
+        int summaryDuration = 0;
+        for (Dish dish : dishes) {
+            summaryDuration += dish.getDuration();
+        }
+        return summaryDuration;
+    }
+
+    public boolean isEmpty() {
+        if (dishes.size() == 0) return true;
+        return false;
     }
 }
