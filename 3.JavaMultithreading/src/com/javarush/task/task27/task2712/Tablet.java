@@ -15,9 +15,10 @@ public class Tablet extends Observable {
         this.number = number;
     }
 
-    public Order createOrder() {
-        
+    public Order createOrder(){
+        Order order = null;
         try {
+<<<<<<< HEAD
             Order order = new Order(this);
 
 //            printOrderAndShowAds(order);
@@ -30,7 +31,18 @@ public class Tablet extends Observable {
         catch (IOException e) {
             logger.log(Level.SEVERE, "Console is unavailable.");
             return null;
+=======
+            order= new Order(this);
+            if (!order.isEmpty()) {
+                ConsoleHelper.writeMessage(order.toString());
+                setChanged();
+                notifyObservers(order);
+            }
+        } catch (IOException e) {
+            logger.log(Level.SEVERE,"Console is unavailable.");
+>>>>>>> tmp
         }
+        return order;
     }
 
     @Override
