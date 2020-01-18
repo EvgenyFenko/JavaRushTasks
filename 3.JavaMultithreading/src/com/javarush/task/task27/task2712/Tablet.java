@@ -18,20 +18,6 @@ public class Tablet extends Observable {
     public Order createOrder(){
         Order order = null;
         try {
-<<<<<<< HEAD
-            Order order = new Order(this);
-
-//            printOrderAndShowAds(order);
-            setChanged();
-            notifyObservers(order);
-
-            return order;
-
-        }
-        catch (IOException e) {
-            logger.log(Level.SEVERE, "Console is unavailable.");
-            return null;
-=======
             order= new Order(this);
             if (!order.isEmpty()) {
                 ConsoleHelper.writeMessage(order.toString());
@@ -40,7 +26,6 @@ public class Tablet extends Observable {
             }
         } catch (IOException e) {
             logger.log(Level.SEVERE,"Console is unavailable.");
->>>>>>> tmp
         }
         return order;
     }
