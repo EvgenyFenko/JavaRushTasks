@@ -1,3 +1,4 @@
+
 package com.javarush.task.task27.task2709;
 
 public class ConsumerTask implements Runnable {
@@ -10,8 +11,10 @@ public class ConsumerTask implements Runnable {
     }
 
     public void run() {
-        synchronized (transferObject){
-            while (!stopped) {
+        synchronized (transferObject)
+        {
+            while (!stopped)
+            {
                 transferObject.get();
             }
         }
