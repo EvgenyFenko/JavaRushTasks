@@ -1,6 +1,8 @@
 package com.javarush.task.task30.task3001;
 
-/* 
+import java.math.BigInteger;
+
+/*
 Конвертер систем счислений
 */
 public class Solution {
@@ -18,8 +20,9 @@ public class Solution {
         System.out.println(result);    //expected abcdefabcdef
     }
 
-    public static Number convertNumberToOtherNumberSystem(Number number, NumberSystem expectedNumberSystem) {
-        //напишите тут ваш код
-        return null;
+    public static Number convertNumberToOtherNumberSystem(Number number, NumberSystem expectedNumerationSystem) {
+        BigInteger bigInt = new BigInteger(number.getDigit(), number.getNumberSystem().getNumberSystemIntValue());
+
+        return new Number(expectedNumerationSystem, bigInt.toString(expectedNumerationSystem.getNumberSystemIntValue()));
     }
 }
