@@ -1,3 +1,4 @@
+
 package com.javarush.task.task24.task2412;
 
 import java.text.ChoiceFormat;
@@ -21,10 +22,10 @@ public class Solution {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
         double[] filelimits = {0d, actualDate.getTime()};
-        String[] filepart = {"change {4}", "open {2} and last {3}"};
+        String[] filepart = {"closed {4}", "open {2} and last {3}"};
 
         ChoiceFormat fileform = new ChoiceFormat(filelimits, filepart);
-        Format[] testFormats = {null, dateFormat, fileform};
+        Format[] testFormats = {null, null, dateFormat, fileform};
         MessageFormat pattform = new MessageFormat("{0}   {1} | {5} {6}");
         pattform.setFormats(testFormats);
 
@@ -41,14 +42,24 @@ public class Solution {
     }
 
     public static void sort(List<Stock> list) {
-        list.sort(new Comparator<Stock>() {
-            public int compare(Stock stock1, Stock stock2) {
-                return 0;
+        Collections.sort(list, (stock1, stock2) -> {
+            int result =  ((String)stock1.get("name")).compareTo((String)stock2.get("name"));
+            if (result != 0) return result;
+            else {
+                result = ((Date)stock2.get("date")).compareTo((Date)stock1.get("date"));
+                if (result != 0) return result;
+                else {
+                    double stock1Change = stock1.get("change") != null ? (double)stock1.get("change") :
+                            ((double)stock1.get("last") - (double)stock1.get("open"));
+                    double stock2Change = stock2.get("change") != null ? (double)stock2.get("change") :
+                            ((double)stock2.get("last") - (double)stock2.get("open"));
+                    return Double.compare(stock2Change, stock1Change);
+                }
             }
         });
     }
 
-    public static class Stock extends HashMap<String, Object> {
+    public static class Stock extends HashMap {
         public Stock(String name, String symbol, double open, double last) {
             put("name", name);
             put("symbol", symbol);
@@ -66,7 +77,7 @@ public class Solution {
     }
 
     public static List<Stock> getStocks() {
-        List<Stock> stocks = new ArrayList<>();
+        List<Stock> stocks = new ArrayList();
 
         stocks.add(new Stock("Fake Apple Inc.", "AAPL", 125.64, 123.43));
         stocks.add(new Stock("Fake Cisco Systems, Inc.", "CSCO", 25.84, 26.3));
@@ -98,4 +109,3 @@ public class Solution {
         return calendar.getTime();
     }
 }
-
