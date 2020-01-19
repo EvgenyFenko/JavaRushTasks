@@ -5,7 +5,7 @@ public class Field {
     private int height;
     private int[][] matrix;
 
-    public Field(int width, int height) {
+    public Field(int height, int width) {
         this.width = width;
         this.height = height;
         this.matrix = new int[height][width];
@@ -24,7 +24,20 @@ public class Field {
     }
 
     public void print() {
-
+//        System.out.println("1111111111111111111");
+//        matrix[1][8] = 3;
+        String line = "";
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (matrix[i][j] == 0){
+                    line += ".";
+                } else {
+                    line += "X";
+                }
+            }
+            System.out.println(line);
+            line = "";
+        }
     }
 
     public void removeFullLines() {

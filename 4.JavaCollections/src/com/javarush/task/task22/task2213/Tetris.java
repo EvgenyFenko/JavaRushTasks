@@ -109,5 +109,8 @@ public class Tetris {
     public static void main(String[] args) throws Exception {
         game = new Tetris(10, 20);
         game.run();
+
+//        Field field = new Field(3, 15);
+//        field.print();
     }
 }
