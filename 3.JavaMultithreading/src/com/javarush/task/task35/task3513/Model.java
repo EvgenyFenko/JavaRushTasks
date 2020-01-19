@@ -191,4 +191,13 @@ public class Model<MoveEfficiency> {
 //        return moveEfficiency;
 //    }
 
+    public void rollback() {
+        if (!previousStates.empty()) {
+            gameTiles = previousStates.pop();
+        }
+        if (!previousScores.empty()) {
+            score = previousScores.pop();
+        }
+    }
+
 }
