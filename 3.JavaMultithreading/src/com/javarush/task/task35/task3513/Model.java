@@ -99,6 +99,48 @@ public class Model {
         isSaveNeeded = true;
     }
 
+    public void down() {
+        saveState(gameTiles);
+        turn();
+        left();
+        turn();
+        turn();
+        turn();
+    }
+
+    public void right() {
+        saveState(gameTiles);
+        turn();
+        turn();
+        left();
+        turn();
+        turn();
+    }
+
+    public void up() {
+        saveState(gameTiles);
+        turn();
+        turn();
+        turn();
+        left();
+        turn();
+    }
+
+    public void turn() {
+        Tile[][] tiles = new Tile[FIELD_WIDTH][FIELD_WIDTH];
+        for (int i = 0; i < gameTiles.length; i++) {
+            for (int j = 0; j < gameTiles[i].length; j++) {
+                tiles[i][j] = new Tile();
+            }
+        }
+        for (int i = gameTiles.length - 1; i >= 0; i--) {
+            for (int j = 0; j < gameTiles[i].length; j++) {
+                tiles[j][gameTiles.length - 1 - i].value = gameTiles[i][j].value;
+            }
+        }
+        gameTiles = tiles;
+    }
+
     private void saveState(Tile[][] tiles) {
         Tile[][] newTiles = new Tile[FIELD_WIDTH][FIELD_WIDTH];
         for (int i = 0; i < gameTiles.length; i++) {
