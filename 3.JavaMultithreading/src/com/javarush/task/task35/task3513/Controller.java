@@ -132,4 +132,8 @@ public class Controller extends KeyAdapter {
     public int getScore() {
         return model.score;
     }
+
+    public View getView() {
+        return view;
+    }
 }
