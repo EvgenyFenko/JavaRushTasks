@@ -2,6 +2,8 @@ package com.javarush.task.task22.task2213;
 
 public class Tetris {
 
+    static Tetris game;
+
     public Field getField() {
         return field;
     }
@@ -14,6 +16,8 @@ public class Tetris {
     private Figure figure;
 
     public static void main(String[] args) {
+        game = new Tetris();
+        game.run();
     }
 
     public void run() {
@@ -21,6 +25,6 @@ public class Tetris {
     }
 
     public void step() {
-
+        
     }
 }
