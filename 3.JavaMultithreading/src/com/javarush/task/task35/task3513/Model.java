@@ -19,6 +19,10 @@ public class Model {
         maxTile = 0;
     }
 
+    public Tile[][] getGameTiles() {
+        return gameTiles;
+    }
+
     private List<Tile> getEmptyTiles() {
         List<Tile> emptyTiles = new ArrayList<>();
         for (int i = 0; i < gameTiles.length; i++) {
@@ -152,6 +156,17 @@ public class Model {
         previousStates.push(newTiles);
         previousScores.push(score);
         isSaveNeeded = false;
+    }
+
+    public boolean canMove() {
+        for (int i = 0; i < gameTiles.length; i++) {
+            for (int j = 0; j < gameTiles[i].length; j++) {
+                if (gameTiles[i][j].value == 0) return true;
+                if (i != 0 && gameTiles[i - 1][j].value == gameTiles[i][j].value) return true;
+                if (j != 0 && gameTiles[i][j - 1].value == gameTiles[i][j].value) return true;
+            }
+        }
+        return false;
     }
 
 }
