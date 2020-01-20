@@ -10,19 +10,19 @@ public class Solution {
         this.name = name;
     }
 
-    private String getName() {
+    public String getName() {
         return name;
     }
 
     private void sout() {
         new Solution("The Darkside Hacker") {
             void printName() {
-                System.out.println(getName());
+                System.out.println(getName());//А если без расширения метода? то: super.getName() !!!
             }
         }.printName();
     }
 
     public static void main(String[] args) {
-        new Solution("Риша").sout();
+        new Solution("main").sout();
     }
 }
