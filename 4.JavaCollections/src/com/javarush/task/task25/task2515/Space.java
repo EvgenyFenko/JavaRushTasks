@@ -6,6 +6,9 @@ import java.util.List;
 public class Space {
     private int width;
     private int height;
+    public static Space game;
+
+
 
 
     //Космический корабль
